@@ -1,12 +1,12 @@
 Source: gmap-gsnap2012-07-03
 Section: science
 Priority: optional
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper (>= 7), zlib1g-dev
 Maintainer: Thomas Wu <twu@gene.com>
 Homepage: http://research-pub.gene.com/gmap
 
 Package: gmap-gsnap2012-07-03
 Architecture: amd64
-Depends: libgetopt-complete-perl
+Depends: zlib1g, perl-base, libgetopt-complete-perl, debconf (>= 0.2.17)
 Description: GMAP: A Genomic Mapping and Alignment Program for mRNA and EST Sequences, and GSNAP: Genomic Short-read Nucleotide Alignment Program
 

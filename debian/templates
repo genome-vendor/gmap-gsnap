@@ -1,0 +1,22 @@
+Template: gmap_gsnap/db_location
+Type: string
+Default: /usr/share/gmapdb
+Description: Storage location for the GMAP genome database files.
+ You can generate your own with gmap_build or gmap_setup, download a
+ pre-built database at http://research-pub.gene.com/gmap/, or override
+ this setting with the GMAPDB environment variable.  If you provide a
+ non-default answer, a symlink will be created at /usr/share/gmapdb
+ that points to the path provided.
+
+Template: gmap_gsnap/db_already_exists
+Type: note
+Description: That pathname already exists.  Leaving it unchanged.
+
+Template: gmap_gsnap/do_db_link
+Type: note
+Description: Creating symlink at /usr/share/gmapdb
+
+Template: gmap_gsnap/empty_db_dir
+Type: note
+Description: Creating empty directory at /usr/share/gmapdb.  You will need
+ to supply database files before running the program.

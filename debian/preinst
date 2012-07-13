@@ -1,0 +1,32 @@
+#!/bin/sh -e
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+DB_SYMLINK_SOURCE="/usr/share/gmapdb"
+# Prompt for DB location
+db_input medium gmap_gsnap/db_location || true
+db_go
+
+# Check their answer.
+db_get gmap_gsnap/db_location
+
+if [ -z $RET ]; then
+    RET=$DB_SYMLINK_SOURCE
+fi
+
+if [ -e $RET ]; then
+    db_input medium gmap_gsnap/db_already_exists || true
+    db_go
+else
+    if [ $RET = $DB_SYMLINK_SOURCE ]; then
+        db_input medium gmap_gsnap/empty_db_dir || true
+        db_go
+        mkdir $RET
+    else
+        db_input medium gmap_gsnap/do_db_link || true
+        db_go
+        ln -s $RET $DB_SYMLINK_SOURCE
+    fi
+fi
+

@@ -17,7 +17,7 @@
 ## specify prefix=`pwd` (with two backward quotes).  If you don't specify
 ## anything for prefix, it defaults to /usr/local.
 ##
-## prefix=/usr/local
+prefix=/usr
 
 
 ## The directory where the GMAP genome database files go.  Each genome
@@ -36,7 +36,7 @@
 ## If you don't specify anything for with_gmapdb, it defaults to 
 ## ${prefix}/share.
 ##
-## with_gmapdb=/path/to/gmapdb
+with_gmapdb=/usr/share/gmapdb
 
 
 ## Optional zlib support (needed only for reading gzip files).  By
