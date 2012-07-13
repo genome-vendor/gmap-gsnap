@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+PKG="gmap-gsnap"
+VER="2012-07-03"
+PKG_DIR=/usr/lib/${PKG}${VER}
+TEST_EXE="gsnap"
+
+if [ "$1" = "configure" ]; then
+    if [ ! -e /usr/bin/${TEST_EXE} ]; then
+        for pathname in ${PKG_DIR}/bin/*; do
+            filename=`basename $pathname`
+            update-alternatives --install /usr/bin/${filename} ${filename} /usr/bin/${filename}${VER} 1
+        done
+    fi
+fi
+

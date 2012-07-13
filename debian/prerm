@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+PKG="gmap-gsnap"
+VER="2012-07-03"
+PKG_DIR=/usr/lib/${PKG}${VER}
+TEST_EXE="gsnap"
+
+if [ \( "$1" = "upgrade" -o "$1" = "remove" \) -a -L /usr/bin/${TEST_EXE} ]; then
+    for pathname in ${PKG_DIR}/bin/*; do
+        filename=`basename $pathname`
+        update-alternatives --remove ${filename} /usr/bin/${filename}${VER}
+    done
+fi
+

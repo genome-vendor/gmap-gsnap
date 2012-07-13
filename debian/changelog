@@ -1,0 +1,5 @@
+gmap-gsnap2012-07-03 (2012-07-03-1) unstable; urgency=low
+
+  * Made a debian package
+
+ -- Anthony Brummett <abrummet@genome.wustl.edu>  Fri, 13 Jul 2012 14:38:20 -0500
